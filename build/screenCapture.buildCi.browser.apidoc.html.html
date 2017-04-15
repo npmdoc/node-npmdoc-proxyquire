@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/thlorenz/proxyquire#readme"
-
-    >proxyquire (v1.7.11)</a>
+    <a href="https://github.com/thlorenz/proxyquire#readme">proxyquire (v1.7.11)</a>
 </h1>
 <h4>Proxies nodejs require in order to allow overriding dependencies during testing.</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.proxyquire">module proxyquire</a><ol>
 
@@ -296,7 +289,7 @@
     <li>description and source-code<pre class="apidocCodePre">callThru = function () { [native code] }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 // all stubs resolved by proxyquireNonStrict will call through by default
-var proxyquireNonStrict = require(&#x27;proxyquire&#x27;);
+var proxyquireNonStrict = require('proxyquire');
 ```
 
 ### Re-enable call thru for all future stubs resolved by a proxyquire instance
@@ -323,8 +316,8 @@ Passing `@noCallThru: false` when configuring modules will override `noCallThru(
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">compat = function () {
-  throw new Error(&#x22;Proxyquire compat mode has been removed. Please update your code to use the new API or pin the version in your
- package.json file to ~0.6&#x22;);
+  throw new Error("Proxyquire compat mode has been removed. Please update your code to use the new API or pin the version in your
+ package.json file to ~0.6");
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -347,12 +340,12 @@ Passing `@noCallThru: false` when configuring modules will override `noCallThru(
 ```javascript
 var foo = proxyquire
     .noCallThru()
-    .<span class="apidocCodeKeywordSpan">load</span>(&#x27;./foo&#x27;, {
+    .<span class="apidocCodeKeywordSpan">load</span>('./foo', {
 
-  // no calls to original &#x27;./bar&#x27; methods will be made
-  &#x27;./bar&#x27; : { toAtm: function (val) { ... } }
+  // no calls to original './bar' methods will be made
+  './bar' : { toAtm: function (val) { ... } }
 
-  // for &#x27;path&#x27; module they will be made
+  // for 'path' module they will be made
 , path: {
     extname: function (file) { ... }
 ...</pre></li>
@@ -376,10 +369,10 @@ var foo = proxyquire
 
 ```javascript
 // all stubs resolved by proxyquireStrict will not call through by default
-var proxyquireStrict = require(&#x27;proxyquire&#x27;).<span class="apidocCodeKeywordSpan">noCallThru</span>();
+var proxyquireStrict = require('proxyquire').<span class="apidocCodeKeywordSpan">noCallThru</span>();
 
 // all stubs resolved by proxyquireNonStrict will call through by default
-var proxyquireNonStrict = require(&#x27;proxyquire&#x27;);
+var proxyquireNonStrict = require('proxyquire');
 ```
 
 ### Re-enable call thru for all future stubs resolved by a proxyquire instance
@@ -403,12 +396,12 @@ some dependency or some module state.
 For this purpose proxyquire exposes the `noPreserveCache` function.
 
 ```js
-// ensure we don&#x27;t get any module from the cache, but to load it fresh every time
-var proxyquire = require(&#x27;proxyquire&#x27;).<span class="apidocCodeKeywordSpan">noPreserveCache</span>();
+// ensure we don't get any module from the cache, but to load it fresh every time
+var proxyquire = require('proxyquire').<span class="apidocCodeKeywordSpan">noPreserveCache</span>();
 
-var foo1 = proxyquire(&#x27;./foo&#x27;, stubs);
-var foo2 = proxyquire(&#x27;./foo&#x27;, stubs);
-var foo3 = require(&#x27;./foo&#x27;);
+var foo1 = proxyquire('./foo', stubs);
+var foo2 = proxyquire('./foo', stubs);
+var foo3 = require('./foo');
 
 // foo1, foo2 and foo3 are different instances of the same module
 assert.notEqual(foo1, foo2);
@@ -430,14 +423,14 @@ assert.notEqual(foo1, foo2);
 assert.notEqual(foo1, foo3);
 ```
 
-`require.preserveCache` allows you to restore the behavior to match nodejs&#x27;s `require` again.
+`require.preserveCache` allows you to restore the behavior to match nodejs's `require` again.
 
 ```js
 proxyquire.<span class="apidocCodeKeywordSpan">preserveCache</span>();
 
-var foo1 = proxyquire(&#x27;./foo&#x27;, stubs);
-var foo2 = proxyquire(&#x27;./foo&#x27;, stubs);
-var foo3 = require(&#x27;./foo&#x27;);
+var foo1 = proxyquire('./foo', stubs);
+var foo2 = proxyquire('./foo', stubs);
+var foo3 = require('./foo');
 
 // foo1, foo2 and foo3 are the same instance
 assert.equal(foo1, foo2);
@@ -468,3 +461,4 @@ assert.equal(foo1, foo2);
     ]
 </div>
 </div>
+</body></html>
